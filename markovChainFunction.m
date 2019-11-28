@@ -33,10 +33,8 @@ for i = 2:(length(data)-1)
 end
 
 % Transform data in transition table to probability:
-for j = 1:bins
-    markovArray(j,:) = markovArray(j,:)./ sum(markovArray(j,:));      
-    cumMarkovArray(j,:) = cumsum(markovArray(j,:));
-end
+markovArray = markovArray./ sum(markovArray,2);  
+cumMarkovArray = cumsum(markovArray, 2);
 
 % Eliminate potential NaNs from potential /0:
 ind = isnan(markovArray);
