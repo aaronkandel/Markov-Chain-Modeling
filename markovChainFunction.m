@@ -25,8 +25,8 @@ for i = 2:(length(data)-1)
     datNow = datNorm(i);
     datBefore = datNorm(i-1);
 
-    dn = round(datNow ./ dmesh) + 1; % Get index
-    db = round(datBefore ./ dmesh) + 1; % Get index
+    dn = floor(datNow ./ dmesh) + 1; % Get index
+    db = floor(datBefore ./ dmesh) + 1; % Get index
     
     markovArray(db, dn) = markovArray(db, dn) + 1;  % Update MTT
     
